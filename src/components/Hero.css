@@ -1,0 +1,59 @@
+.hero {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 2rem;
+  background-color: #000;
+  /* margin-top: calc(.5rem); */
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+
+.hero-content {
+  max-width: 600px;
+  /* background: rgba(0, 0, 0, 0.5); Optional overlay for readability */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero .roles {
+  font-size: 1.25rem;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.hero .description {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.hero .cta-button {
+  background-color: #fdbb49;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero .cta-button:hover {
+  background-color: #fbc539;
+}
+
+@media screen and (min-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,88 @@
+.services-section {
+  padding: 6rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #111;
+}
+
+/* Responsive Grid */
+.services-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Flip Card Container */
+.flip-card {
+  perspective: 1000px;
+  height: 280px;
+  margin: 0 1rem;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+  border-radius: 16px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  /* padding: 0; */
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  /* padding: 2rem; */
+  transition: all 0.3s ease;
+}
+
+/* Front Face Style */
+.flip-card-front {
+  background: #fff;
+  color: #111;
+}
+
+.flip-card-front .icon {
+  font-size: 2.5rem;
+  color: #fdbb49;
+  margin-bottom: 1rem;
+}
+
+/* Back Face Style */
+.flip-card-back {
+  background: #fdbb49;
+  color: #fff;
+  transform: rotateY(180deg);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+/* Auto-flip class for mobile */
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}

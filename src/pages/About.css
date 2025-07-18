@@ -1,0 +1,91 @@
+.about-section {
+  padding: 6rem 2rem 3rem;
+  background-color: #fff;
+  color: #111;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-left img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #ddd;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.filled {
+  background-color: #fdbb49;
+  height: 6px;
+  position: relative;
+  border-radius: 4px;
+  transition: width 1.2s ease;
+}
+
+.label {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  transform: translateX(50%);
+  background: #fdbb49;
+  color: #000;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.about-bio {
+  margin-top: 2rem;
+}
+
+.about-bio p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .about-left,
+  .about-right {
+    flex: 1;
+  }
+
+  .about-left {
+    margin-right: 2rem;
+  }
+}
