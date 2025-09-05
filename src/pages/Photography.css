@@ -31,6 +31,10 @@
   display: block;
   transition: transform 0.3s ease;
   border-radius: 6px;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 3/2;
+  min-height: 200px;
 }
 
 .gallery-item:hover img {

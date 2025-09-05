@@ -13,13 +13,88 @@
 /* Responsive Grid */
 .services-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(1, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+  .services-section {
+    padding: 4rem 1rem;
+  }
+
+  .services-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 200px;
+    margin: 0;
+  }
+
+  .flip-card-front .icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1.1rem;
+  }
+
+  .flip-card-back {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .services-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .services-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-grid {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 240px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .flip-card {
+    height: 260px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .flip-card {
+    height: 280px;
   }
 }
 

@@ -1,20 +1,114 @@
 .hero {
   min-height: 100vh;
-  padding: 6rem 1.5rem 2rem;
+  padding: 8rem 1.5rem 2rem; /* Increased top padding for navbar */
   background-color: #000;
-  /* margin-top: calc(.5rem); */
   background-size: cover;
-  /* background-position: center; */
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #fff;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* Image quality improvements */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
+/* Alternative background sizing for better image fit */
+.hero.contain-image {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.hero.fit-image {
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+.hero.cover-image {
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Special handling for portrait images */
+.hero.portrait-image {
+  background-size: auto 100%;
+  background-position: center right;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Force hardware acceleration for crisp rendering */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  will-change: transform;
+  /* Ensure high quality rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hero.portrait-image::before {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+}
+
+/* Additional styling for better image display */
+.hero.contain-image::before {
+  background: rgba(0, 0, 0, 0.3); /* Lighter overlay for contain mode */
+}
+
+/* Global image quality improvements */
+.hero * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure background images maintain quality */
+.hero {
+  image-rendering: auto;
+  -webkit-image-rendering: auto;
+  /* Prevent browser from scaling down images */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Specific quality improvements for portrait mode */
+.hero.portrait-image {
+  /* Ensure the image is not being scaled down */
+  background-size: auto 100%;
+  /* Use high-quality rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Ensure text is always visible */
+.hero-content {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 2rem;
+  /* Removed backdrop-filter to prevent blur */
+}
+
+/* Overlay for better text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 600px;
-  /* background: rgba(0, 0, 0, 0.5); Optional overlay for readability */
   padding: 2rem;
   border-radius: 12px;
 }
@@ -52,8 +146,163 @@
   background-color: #fbc539;
 }
 
-@media screen and (min-width: 768px) {
+/* Mobile First Responsive Design */
+@media screen and (max-width: 480px) {
+  .hero {
+    min-height: 100vh;
+    padding: 6rem 1rem 2rem; /* Increased for mobile navbar */
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    /* Ensure proper mobile viewport */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .hero.portrait-image {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .hero.contain-image {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero .roles {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero .description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+  }
+  
+  .hero .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 7rem 1.5rem 2rem; /* Increased for mobile navbar */
+    background-attachment: scroll;
+    background-position: center center;
+  }
+  
+  .hero.portrait-image {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .hero.contain-image {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .hero-content {
+    max-width: 90%;
+    padding: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .roles {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero .cta-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    padding: 6rem 2rem 2rem;
+  }
+  
+  .hero.portrait-image {
+    background-size: auto 100%;
+    background-position: center right;
+  }
+  
+  .hero.contain-image {
+    background-position: center center;
+  }
+  
+  .hero-content {
+    max-width: 70%;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero .roles {
+    font-size: 1.2rem;
+  }
+  
+  .hero .description {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .hero {
+    padding: 8rem 1.5rem 2rem; /* Increased for navbar */
+  }
+  
+  .hero.portrait-image {
+    background-size: auto 100%;
+    background-position: center right;
+  }
+  
+  .hero.contain-image {
+    background-position: center center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+  
   .hero h1 {
     font-size: 3.5rem;
+  }
+  
+  .hero .roles {
+    font-size: 1.25rem;
+  }
+  
+  .hero .description {
+    font-size: 1rem;
   }
 }

@@ -1,3 +1,6 @@
-export const EMAIL_SERVICE_ID = 'service_do1rvzl';
-export const EMAIL_TEMPLATE_ID = 'template_5n8vv3i';
-export const EMAIL_PUBLIC_KEY = 'q7pLnhXrbOWW2EHhu';
+// Import email configuration from main config file
+import { emailConfig } from '../config/portfolioConfig';
+
+export const EMAIL_SERVICE_ID = emailConfig.serviceId;
+export const EMAIL_TEMPLATE_ID = emailConfig.templateId;
+export const EMAIL_PUBLIC_KEY = emailConfig.publicKey;
